@@ -4,27 +4,32 @@ export function getEmployees() {
     return employeeData;
 }
 
-export async function createEmployee(newEmployee:{ id: string; name: string; department: string }) {
-    employeeData.push(newEmployee)
-    return newEmployee
+export async function createEmployee(newEmpployee: { name: string; department: string }) {
+  const id = (employeeData.length + 1).toString();
+  const employee = { id, ...newEmpployee};
+  employeeData.push(employee)
+  return employee
 }
 
-export async function updateEmployee(employee: {id: string; name: string; department: string }) {
-    const foundIndex = employeeData.findIndex((e) => e.id === employee.id)
-
-    if(foundIndex === -1) {
-        throw new Error('Failed to update employee with id ${employee.id}');
-    }
-    employeeData[foundIndex] = employee;
-    return employeeData[foundIndex];
+export async function updateEmployee(updatedEmployee: { id: string; name: string; department: string }) {
+  const index = employeeData.findIndex((e) => e.id === updatedEmployee.id)
+  
+  if (index === -1) {
+    throw new Error(`Failed to update employee with ID ${updatedEmployee.id}`);
+  }
+  employeeData[index] = updatedEmployee;
+  return employeeData[index]
 }
 
 export async function deleteEmployee(id: string) {
   const index = employeeData.findIndex((e) => e.id === id);
   if (index === -1) {
-    throw new Error(`Failed to delete employee with id ${id}`);
+    throw new Error(`Fail to delete employee with ID ${id}`);
   }
-  return employeeData.splice(index, 1)[0];
+  employeeData.splice(index, 1);
+
 }
+  
+
     
 
