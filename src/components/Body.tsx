@@ -1,4 +1,4 @@
-import employeeData from '../data/employees.json';
+import employeeData from '../data/employees';
 
 const Body = () => {
     return(

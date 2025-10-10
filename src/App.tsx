@@ -8,6 +8,7 @@ import Body from './components/Body'
 import Logo from './components/ui/logo'
 import ManagementRole from './components/organization'
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
       <Logo />
       <Header />
       <Routes>
+      
         <Route path="/organization" element={<ManagementRole />}>
         </Route>
 

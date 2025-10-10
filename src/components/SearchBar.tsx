@@ -6,7 +6,7 @@ interface SearchBarProps {
 
 export default function SearchBar({ onChange }: SearchBarProps) {
     return(
-        <div className="" >
+        <div className="SearchBar" >
             <div className="">
                 <FcSearch className="" />
                 <input className="" type="search" onChange={onChange} placeholder="Search for content..."/>
