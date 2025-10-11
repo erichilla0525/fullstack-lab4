@@ -37,7 +37,8 @@ export function useEmployees(dependencies: unknown[] = [], filterFn?: ((employee
         const createEmployee = async (name: string, department: string) => {
             try {
                 await EmployeeService.createEmployee({ name, department });
-                await EmployeeService.fetchEmployees();
+                const result = await EmployeeService.fetchEmployees();
+                setEmployees(result);
             } catch (errorObject) {
                 setError(`${errorObject}`)
             }
