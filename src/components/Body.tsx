@@ -14,17 +14,14 @@ const Body = () => {
 
     const handleCreate = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!name.trim()) return
-        
+
         createEmployee(name, department);
         setName("")
     }
     const handleDelete = (id:string) => {
         deleteEmployee(id);
     }
-    if (error) {
-        return<p> Error: {error} </p>
-    }
+    
     return(
         <main>
             <h2>Employees List</h2>
@@ -43,6 +40,9 @@ const Body = () => {
 
             </form>
 
+            {error && <p style={{color:"red"}}>{error}</p>}
+
+
              <hr />
              {employees.map((emp) => (
                 <p key={emp.id}>
@@ -51,8 +51,6 @@ const Body = () => {
 
                 </p>
              ))}
-
-
         </main>
     )};
 

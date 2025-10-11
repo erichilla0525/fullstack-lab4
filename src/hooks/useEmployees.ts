@@ -35,6 +35,19 @@ export function useEmployees(dependencies: unknown[] = [], filterFn?: ((employee
         };
 
         const createEmployee = async (name: string, department: string) => {
+
+            if (!name.trim()) {
+                setError("Employee name is required.");
+                return  
+            }
+            setError("")
+
+            if (name.trim().length <3) {
+                setError("Employee name at least requires 3 letters")
+                return
+            }
+            setError("")
+
             try {
                 await EmployeeService.createEmployee({ name, department });
                 const result = await EmployeeService.fetchEmployees();
