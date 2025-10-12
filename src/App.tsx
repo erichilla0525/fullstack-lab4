@@ -16,6 +16,7 @@ function App() {
       <Logo />
       <Header />
       <Routes>
+        <Route path="/" element={<ManagementRole />} />
       
         <Route path="/organization" element={<ManagementRole />}>
         </Route>
