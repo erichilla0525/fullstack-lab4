@@ -22,9 +22,10 @@ const ManagementRole = () => {
 
             createRole(name, title, description);
             setName("");
-            setTitle("");
+            setNewTitle("");
             setDescription("");
     };
+
     return(
         <main>
             <h2>Leadership Team</h2>
@@ -37,7 +38,7 @@ const ManagementRole = () => {
                 ))}
             </select>  
 
-            {error && <p style={{ color: "red" }}>{error}</p>};
+            {error && <p style={{ color: "red" }}>{error}</p>}
 
             <hr />
 
