@@ -1,7 +1,16 @@
 import { Employee } from "@prisma/client";
 
 export const employeeSeedData: Omit<Employee, "id">[] = [
-  { name: "Alice", department: "Engineering" },
-  { name: "Bob", department: "HR" },
-  { name: "Charlie", department: "Finance" },
-];
+    {
+        name: "Tenpura",
+        department: "Administration",
+    },
+    {
+        name: "Sashimi",
+        department: "Administration",
+    },
+    {
+        name: "Sushi",
+        department: "Audit",
+    }
+]
