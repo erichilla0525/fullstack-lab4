@@ -11,6 +11,16 @@ export async function createEmployee(newEmpployee: { name: string; department: s
   return employee
 }
 
+export async function updateEmployee(updatedEmployee: { id: string; name: string; department: string }) {
+  const index = employeeData.findIndex((e) => e.id === updatedEmployee.id)
+  
+  if (index === -1) {
+    throw new Error(`Failed to update employee with ID ${updatedEmployee.id}`);
+  }
+  employeeData[index] = updatedEmployee;
+  return employeeData[index]
+}
+
 export async function deleteEmployee(id: string) {
   const index = employeeData.findIndex((e) => e.id === id);
   if (index === -1) {

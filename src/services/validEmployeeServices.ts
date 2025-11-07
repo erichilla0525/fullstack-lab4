@@ -9,6 +9,10 @@ export async function createEmployee(employee: { name: string; department: strin
     return await employeeRepo.createEmployee(employee);
 }
 
+export async function updateEmployee(employee: { id: string; name: string; department: string }) {
+    return await employeeRepo.updateEmployee(employee);
+}
+
 export async function deleteEmployee(id: string) {
     return await employeeRepo.deleteEmployee(id);
 }
