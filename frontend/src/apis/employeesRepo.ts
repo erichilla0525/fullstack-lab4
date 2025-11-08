@@ -1,7 +1,12 @@
 import { employeeData } from "../data/mockEmployees";
 
-export function getEmployees() {
-    return employeeData;
+const api_base = "http://localhost:3000/api/employees";
+
+export async function getEmployees() {
+    const res = await fetch(api_base)
+    if (!res) throw new Error("Failed to fetch Employees from database")
+    const result = await res.json();
+    return result.data;
 }
 
 export async function createEmployee(newEmpployee: { name: string; department: string }) {

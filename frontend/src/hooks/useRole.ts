@@ -37,22 +37,21 @@ export function useRole(dependencies: unknown[] =[], filterFn?:(role: Role) => b
     const createRole = async(name: string, title: string, description: string) => {
         try {
             await roleService.createRole({ name, title, description });
-            const result = await roleService.fetchRole();
-            setRole(result);
+            await fetchRole(); // ✅ 刷新 UI
         } catch (errorObject) {
             setError(`${errorObject}`);
         }
     };
 
-    const deleteRole = async(id: string) => {
+        const deleteRole = async(id: string) => {
         try {
             await roleService.deleteRole(id);
-            const result = await roleService.fetchRole();
-            setRole(result);
-        } catch (errorObject){
+            await fetchRole(); // ✅ 刷新 UI
+        } catch (errorObject) {
             setError(`${errorObject}`);
         }
-    }; 
+    };
+
 
     const titleOptions = useMemo(() =>{
         const titles = [...new Set(role.map((r) => r.title))] as string[];

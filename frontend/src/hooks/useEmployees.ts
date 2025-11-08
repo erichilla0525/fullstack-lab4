@@ -50,8 +50,8 @@ export function useEmployees(dependencies: unknown[] = [], filterFn?: ((employee
 
             try {
                 await EmployeeService.createEmployee({ name, department });
-                const result = await EmployeeService.fetchEmployees();
-                setEmployees(result);
+                await fetchEmployees();
+                
             } catch (errorObject) {
                 setError(`${errorObject}`)
             }
